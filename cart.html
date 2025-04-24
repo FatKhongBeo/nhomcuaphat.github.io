@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - CS:GO Knife Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+        nav {
+        background-color: #444;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        nav a {
+        color: #fff;
+        margin: 0 1rem;
+        text-decoration: none;
+        font-weight: bold;
+    }
+        nav a:hover {
+        text-decoration: underline;
+    }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #cartItems {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .cart-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .cart-item p {
+            margin: 0.5rem 0;
+        }
+        .cart-item button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-item button:hover {
+            background-color: #c82333;
+        }
+        button.checkout {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        button.checkout:hover {
+            background-color: #218838;
+        }
+        .thanks-message {
+            margin-top: 2rem;
+        }
+        .thanks-message img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Payment Page</h1>
+    </header>
+    <nav>
+        <div>
+            <a href="e:/Deadline/index.html">Home</a>
+            <a href="e:/Deadline/product.html">All Products</a>
+            <a href="e:/Deadline/cart.html">Cart</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <button class="checkout" onclick="checkout()">Checkout</button>
+        <div class="thanks-message" id="thanksMessage" style="display: none;">
+            <img id="thanksImage" src="" alt="Message">
+            <p id="thanksText"></p>
+        </div>
+    </div>
+    <script>
+        // Hàm tải giỏ hàng từ localStorage và hiển thị
+        function loadCart() {
+            // Lấy dữ liệu giỏ hàng từ localStorage hoặc khởi tạo mảng rỗng nếu không có
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Lấy phần tử chứa danh sách sản phẩm trong giỏ hàng
+            const cartContainer = document.getElementById('cartItems');
+            
+            // Xóa nội dung cũ trong container
+            cartContainer.innerHTML = '';
+            
+            // Kiểm tra nếu giỏ hàng trống
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Giỏ hàng của bạn đang trống.</p>';
+                return;
+            }
+            
+            // Thêm từng sản phẩm vào container
+            cart.forEach((item, index) => {
+                const product = document.createElement('div');
+                product.className = 'cart-item';
+                product.innerHTML = `
+                    <p><strong>${item.name}</strong></p>
+                    <p>${item.price}</p>
+                    <button onclick="removeFromCart(${index})">Xóa</button>
+                `;
+                cartContainer.appendChild(product);
+            });
+        }
+
+        // Hàm xóa sản phẩm khỏi giỏ hàng
+        function removeFromCart(index) {
+            // Lấy dữ liệu giỏ hàng từ localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Xóa sản phẩm tại vị trí index
+            cart.splice(index, 1);
+            
+            // Lưu lại giỏ hàng đã cập nhật vào localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Tải lại giỏ hàng để cập nhật giao diện
+            loadCart();
+        }
+
+        // Hàm xử lý thanh toán
+        function checkout() {
+            // Lấy dữ liệu giỏ hàng từ localStorage
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Lấy các phần tử hiển thị thông báo "Cảm ơn"
+            const thanksMessage = document.getElementById('thanksMessage');
+            const thanksImage = document.getElementById('thanksImage');
+            const thanksText = document.getElementById('thanksText');
+            
+            // Kiểm tra nếu giỏ hàng trống
+            if (cart.length === 0) {
+                // Hiển thị thông báo giỏ hàng trống
+                thanksImage.src = "e:/Deadline/f-off.gif"; // Đường dẫn đến ảnh "giỏ hàng trống"
+                thanksText.textContent = "Giỏ hàng của bạn đang trống. Hãy thêm sản phẩm để tiếp tục.";
+            } else {
+                // Hiển thị thông báo cảm ơn
+                thanksImage.src = "e:/Deadline/thanks.gif"; // Đường dẫn đến ảnh "cảm ơn"
+                thanksText.textContent = "Cảm ơn bạn đã mua hàng! Đơn hàng của bạn đang được xử lý.";
+                
+                // Xóa giỏ hàng khỏi localStorage
+                localStorage.removeItem('cart');
+                
+                // Tải lại giỏ hàng để cập nhật giao diện
+                loadCart();
+            }
+            
+            // Hiển thị thông báo "Cảm ơn"
+            thanksMessage.style.display = 'block';
+        }
+
+        // Tải giỏ hàng khi trang được mở
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

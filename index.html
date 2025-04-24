@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - CS:GO Case Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .video-container video {
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product-card h3 {
+            margin: 0.5rem 0;
+        }
+        .product-card p {
+            color: #555;
+        }
+        .product-card button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CS2: Cases store</h1>
+    </header>
+    <nav>
+        <div>
+            <a href="e:/Deadline/index.html">Home</a>
+            <a href="e:/Deadline/product.html">All Products</a>
+            <a href="e:/Deadline/cart.html">Cart</a>
+        </div>
+    </nav>
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="e:/Deadline/montage.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="container">
+        <h2>Featured Products</h2>
+        <div class="product">
+            <!-- Được mở nhiều nhất trong 2025 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (2).png" alt="Case 3">
+                <h3>Kilowatt Case</h3>
+                <p>Price: $0.55</p>
+                <button onclick="addToCart('Kilowatt Case', '$0.55')">Buy Now</button>
+            </div>
+            <!-- Được mở nhiều t2 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (21).png" alt="Case 22">
+                <h3>Gamma 2 Case</h3>
+                <p>Price: $4.19</p>
+                <button onclick="addToCart('Gamma 2 Case', '$4.19')">Buy Now</button>
+            </div>
+            <!-- Mở nhiều nhất t3 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (40).png" alt="Case 41">
+                <h3>Spectrum 2 Case</h3>
+                <p>Price: $3.63</p>
+                <button onclick="addToCart('Spectrum 2 Case', '$3.63')">Buy Now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+         //Hàm thêm sản phẩm vào giỏ hàng
+        function addToCart(name, price) {
+             //Lấy giỏ hàng từ localStorage hoặc khởi tạo mảng rỗng nếu chưa có
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+             //Thêm sản phẩm mới vào giỏ hàng
+            cart.push({ name, price });
+            
+             //Lưu giỏ hàng đã cập nhật vào localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+             //Hiển thị thông báo cho người dùng
+            alert(`${name} đã được thêm vào giỏ hàng!`);
+        }
+    </script>
+</body>
+</html>

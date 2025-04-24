@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - CS:GO Knife Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product-card h3 {
+            margin: 0.5rem 0;
+        }
+        .product-card p {
+            color: #555;
+        }
+        .product-card button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background-color: #218838;
+        }
+        .search-bar {
+            margin: 1rem auto;
+            text-align: center;
+        }
+        .search-bar input {
+            padding: 0.5rem;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .search-bar button {
+            padding: 0.5rem 1rem;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CS:GO Knife Store</h1>
+    </header>
+    <nav>
+        <div>
+            <a href="e:/Deadline/index.html">Home</a>
+            <a href="e:/Deadline/product.html">All Products</a>
+            <a href="e:/Deadline/cart.html">Cart</a>
+        </div>
+    </nav>
+    <div class="search-bar">
+        <!-- Thanh tìm kiếm -->
+        <input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts()">
+    </div>
+    <div class="container">
+        <h2>All Products</h2>
+        <div class="product" id="product-list">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f.png" alt="Case 1">
+                <h3>Fever Case</h3>
+                <p>Price: $1.00</p>
+                <button onclick="addToCart('Fever Case', '$1.00')">Buy Now</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (1).png" alt="Case 2">
+                <h3>Gallery Case</h3>
+                <p>Price: $0.80</p>
+                <button onclick="addToCart('Gallery Case | Doppler', '$0.80')">Buy Now</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (2).png" alt="Case 3">
+                <h3>Kilowatt Case</h3>
+                <p>Price: $0.55</p>
+                <button onclick="addToCart('Kilowatt Case', '$0.55')">Buy Now</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (3).png" alt="Case 4">
+                <h3>Dream & Nightmares CaseCase</h3>
+                <p>Price: $1.91</p>
+                <button onclick="addToCart('Dream & Nightmares CaseCase', '$1.91')">Buy Now</button>
+            </div>
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (4).png" alt="Case 5">
+                <h3>Frature Case</h3>
+                <p>Price: $0.29</p>
+                <button onclick="addToCart('Frature Case', '$0.29')">Buy Now</button>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (5).png" alt="Case 6">
+                <h3>Recoil Case</h3>
+                <p>Price: $0.26</p>
+                <button onclick="addToCart('Recoil Case', '$0.26')">Buy Now</button>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (6).png" alt="Case 7">
+                <h3>Revolution Case</h3>
+                <p>Price: $0.53</p>
+                <button onclick="addToCart('Revolution Case', '$0.53')">Buy Now</button>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (7).png" alt="Case 8">
+                <h3>Chroma Case</h3>
+                <p>Price: $5.94</p>
+                <button onclick="addToCart('Chroma Case', '$5.94')">Buy Now</button>
+            </div>
+            <!-- Product 9 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (8).png" alt="Case 9">
+                <h3>Chroma 2 Case</h3>
+                <p>Price: $4.38</p>
+                <button onclick="addToCart('Chroma 2 Case', '$4.38')">Buy Now</button>
+            </div>
+            <!-- Product 10 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (9).png" alt="Case 10">
+                <h3>Chroma 3 Case</h3>
+                <p>Price: $4.17</p>
+                <button onclick="addToCart('Chroma 3 Case', '$4.17')">Buy Now</button>
+            </div>
+            <!-- Product 11 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (10).png" alt="Case 11">
+                <h3>Clutch Case</h3>
+                <p>Price: $0.80</p>
+                <button onclick="addToCart('Clutch Case', '$0.80')">Buy Now</button>
+            </div>
+            <!-- Product 12 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (11).png" alt="Case 12">
+                <h3>CS:GO Weapon Case</h3>
+                <p>Price: $111.21</p>
+                <button onclick="addToCart('CS:GO Weapon Case', '$111.21')">Buy Now</button>
+            </div>
+            <!-- Product 13 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (12).png" alt="Case 13">
+                <h3>CS:GO Weapon Case 2</h3>
+                <p>Price: $12.97</p>
+                <button onclick="addToCart('CS:GO Weapon Case 2', '$12.97')">Buy Now</button>
+            </div>
+            <!-- Product 14 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (13).png" alt="Case 14">
+                <h3>CS:GO Weapon Case 3</h3>
+                <p>Price: $8.93</p>
+                <button onclick="addToCart('CS:GO Weapon Case 3', '$8.93')">Buy Now</button>
+            </div>
+            <!-- Product 15 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (14).png" alt="Case 15">
+                <h3>CS20 Case</h3>
+                <p>Price: $1.14</p>
+                <button onclick="addToCart('CS20 Case', '$1.14')">Buy Now</button>
+            </div>
+            <!-- Product 16 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (15).png" alt="Case 16">
+                <h3>Danger Zone Case</h3>
+                <p>Price: $1.28</p>
+                <button onclick="addToCart('Danger Zone Case', '$1.28')">Buy Now</button>
+            </div>
+            <!-- Product 17 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (16).png" alt="Case 17">
+                <h3>eSports 2013 Case</h3>
+                <p>Price: $84.55</p>
+                <button onclick="addToCart('eSports 2013 Case', '$84.55')">Buy Now</button>
+            </div>
+            <!-- Product 18 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (17).png" alt="Case 18">
+                <h3>eSports 2013 Winter Case</h3>
+                <p>Price: $13.06</p>
+                <button onclick="addToCart('eSports 2013 Winter Case', '$13.06')">Buy Now</button>
+            </div>
+            <!-- Product 19 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (18).png" alt="Case 19">
+                <h3>eSports 2013 Summer Case</h3>
+                <p>Price: $8.80</p>
+                <button onclick="addToCart('eSports 2013 Summer Case', '$8.80')">Buy Now</button>
+            </div>
+            <!-- Product 20 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (19).png" alt="Case 20">
+                <h3>Falchion Case</h3>
+                <p>Price: $2.18</p>
+                <button onclick="addToCart('Falchion Case', '$2.18')">Buy Now</button>
+            </div>
+            <!-- Product 21 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (20).png" alt="Case 21">
+                <h3>Gamma Case</h3>
+                <p>Price: $4.27</p>
+                <button onclick="addToCart('Gamma Case', '$4.27')">Buy Now</button>
+            </div>
+            <!-- Product 22 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (21).png" alt="Case 22">
+                <h3>Gamma 2 Case</h3>
+                <p>Price: $4.19</p>
+                <button onclick="addToCart('Gamma 2 Case', '$4.19')">Buy Now</button>
+            </div>
+            <!-- Product 23 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (22).png" alt="Case 23">
+                <h3>Glove Case</h3>
+                <p>Price: $13.39</p>
+                <button onclick="addToCart('Glove Case', '$13.39')">Buy Now</button>
+            </div>
+            <!-- Product 24 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (23).png" alt="Case 24">
+                <h3>Horizon Case</h3>
+                <p>Price: $1.84</p>
+                <button onclick="addToCart('Horizon Case', '$1.84')">Buy Now</button>
+            </div>
+            <!-- Product 25 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (24).png" alt="Case 25">
+                <h3>Huntsman Weapon Case</h3>
+                <p>Price: $11.96</p>
+                <button onclick="addToCart('Huntsman Weapon Case', '$11.96')">Buy Now</button>
+            </div>
+            <!-- Product 26 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (25).png" alt="Case 26">
+                <h3>Operation Bravo Case</h3>
+                <p>Price: $54.64</p>
+                <button onclick="addToCart('Operation Bravo Case', '$54.64')">Buy Now</button>
+            </div>
+            <!-- Product 27 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (26).png" alt="Case 27">
+                <h3>Operation Breakout Weapon Case</h3>
+                <p>Price: $9.47</p>
+                <button onclick="addToCart('Operation Breakout Weapon Case', '$9.47')">Buy Now</button>
+            </div>
+            <!-- Product 28 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (27).png" alt="Case 28">
+                <h3>Operation Broken Fang Case</h3>
+                <p>Price: $8.44</p>
+                <button onclick="addToCart('Operation Broken Fang Case', '$8.44')">Buy Now</button>
+            </div>
+            <!-- Product 29 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (28).png" alt="Case 29">
+                <h3>Operation Hydra Case</h3>
+                <p>Price: $26.87</p>
+                <button onclick="addToCart('Operation Hydra Case', '$26.87')">Buy Now</button>
+            </div>
+            <!-- Product 30 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (29).png" alt="Case 30">
+                <h3>Operation Phoenix Weapon Case</h3>
+                <p>Price: $5.49</p>
+                <button onclick="addToCart('Operation Phoenix Weapon Case', '$5.49')">Buy Now</button>
+            </div>
+            <!-- Product 31 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (30).png" alt="Case 31">
+                <h3>Operation Riptide Case</h3>
+                <p>Price: $13.12</p>
+                <button onclick="addToCart('Operation Riptide Case', '$13.12')">Buy Now</button>
+            </div>
+            <!-- Product 32 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (31).png" alt="Case 32">
+                <h3>Operation Vanguard Weapon Case</h3>
+                <p>Price: $4.48</p>
+                <button onclick="addToCart('Operation Vanguard Weapon Case', '$4.48')">Buy Now</button>
+            </div>
+            <!-- Product 33 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (32).png" alt="Case 33">
+                <h3>Operation Wildfire Case</h3>
+                <p>Price: $3.65</p>
+                <button onclick="addToCart('Operation Wildfire Case', '$3.65')">Buy Now</button>
+            </div>
+            <!-- Product 34 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (33).png" alt="Case 34">
+                <h3>Prisma Case</h3>
+                <p>Price: $1.27</p>
+                <button onclick="addToCart('Prisma Case', '$1.27')">Buy Now</button>
+            </div>
+            <!-- Product 35 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (34).png" alt="Case 35">
+                <h3>Prisma 2 Case</h3>
+                <p>Price: $1.21</p>
+                <button onclick="addToCart('Prisma 2 Case', '$1.21')">Buy Now</button>
+            </div>
+            <!-- Product 36 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (35).png" alt="Case 36">
+                <h3>Revolver Case</h3>
+                <p>Price: $3.37</p>
+                <button onclick="addToCart('Revolver Case', '$3.37')">Buy Now</button>
+            </div>
+            <!-- Product 37 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (36).png" alt="Case 37">
+                <h3>Shadow Case</h3>
+                <p>Price: $1.90</p>
+                <button onclick="addToCart('Shadow Case', '$1.90')">Buy Now</button>
+            </div>
+            <!-- Product 38 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (37).png" alt="Case 38">
+                <h3>Shattered Web Case</h3>
+                <p>Price: $5.95</p>
+                <button onclick="addToCart('Shattered Web Case', '$5.95')">Buy Now</button>
+            </div>
+            <!-- Product 39 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (38).png" alt="Case 39">
+                <h3>Snakebite Case</h3>
+                <p>Price: $0.38</p>
+                <button onclick="addToCart('Snakebite Case', '$0.38')">Buy Now</button>
+            </div>
+            <!-- Product 40 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (39).png" alt="Case 40">
+                <h3>Spectrum Case</h3>
+                <p>Price: $5.22</p>
+                <button onclick="addToCart('Spectrum Case', '$5.22')">Buy Now</button>
+            </div>
+            <!-- Product 41 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (40).png" alt="Case 41">
+                <h3>Spectrum 2 Case</h3>
+                <p>Price: $3.63</p>
+                <button onclick="addToCart('Spectrum 2 Case', '$3.63')">Buy Now</button>
+            </div>
+            <!-- Product 42 -->
+            <div class="product-card">
+                <img src="e:\Deadline\img\256fx256f (41).png" alt="Case 42">
+                <h3>Winter Offensive Weapon Case</h3>
+                <p>Price: $8.99</p>
+                <button onclick="addToCart('Winter Offensive Weapon Case', '$8.99')">Buy Now</button>
+            </div>
+    </div>
+    <script>
+        // Hàm thêm sản phẩm vào giỏ hàng
+        function addToCart(name, price) {
+            // Lấy giỏ hàng từ localStorage hoặc khởi tạo mảng rỗng nếu chưa có
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Thêm sản phẩm mới vào giỏ hàng
+            cart.push({ name, price });
+            
+            // Lưu giỏ hàng đã cập nhật vào localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Hiển thị thông báo cho người dùng
+            alert(`${name} đã được thêm vào giỏ hàng!`);
+        }
+
+        // Hàm tìm kiếm sản phẩm
+        function searchProducts() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase(); // Lấy giá trị tìm kiếm và chuyển thành chữ thường
+            const products = document.querySelectorAll('.product-card'); // Lấy tất cả các sản phẩm
+
+            products.forEach(product => {
+                const name = product.querySelector('h3').textContent.toLowerCase(); // Lấy tên sản phẩm và chuyển thành chữ thường
+                const price = product.querySelector('p').textContent.toLowerCase(); // Lấy giá sản phẩm và chuyển thành chữ thường
+
+                // Hiển thị sản phẩm nếu tên hoặc giá khớp với từ khóa tìm kiếm
+                product.style.display = (name.includes(searchInput) || price.includes(searchInput)) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
